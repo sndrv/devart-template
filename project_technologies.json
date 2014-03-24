@@ -1,13 +1,13 @@
 {
     "technologies": {
         "apis": [
-            "insert apis"
+            "Google Maps API"
         ],
         "platforms": [
-            "insert platforms"
+            "Layar augmented reality browser on Android/iOS"
         ],
         "toolkits": [
-            "insert toolkits"
+            
         ]
     },
     "themes": [
