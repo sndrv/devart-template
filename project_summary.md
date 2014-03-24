@@ -1,33 +1,21 @@
 # Project Title
-Insert the name of your project
+Global Participative Sculpture
 
 ## Authors
-- Insert main author name, surname, github account
-- Insert other author(s) name, surname, github account (one per list element)
+Sander Veenhof
 
 ## Description
-Insert a description containing about 100 to 150 words, including your motivation and the meaning behind your idea and execution. The Judges will be keen to know how your idea pushes the boundaries of code and technology. 
+Augmented reality provides visual artists with a universe without borders and limits. An expression of this fact is the virtual artwork "BiggAR" which occupies the skies all over the globe since 2010. Because a majority of people nowadays have access to the tools to view and to interact with virtual content in their surrounding, we can say that augmented reality has turned the whole world into an interactive environment. To express this in a visual artistic way, a Global Participative Sculpture will be launched across the surface of the whole earth. A multi-user interactive artwork that will react with digital animation when it senses the presence of people. It cannot be touched physically, but it can be 'touched' through GPS-presence. Virtual material will be an unignorable component of our future reality, and it provides our world with some new and amazingly unique features. 
 
 ## Link to Prototype
-NOTE: If your project lives online you can add one or more links here. Make sure you have a stable version of your project running before linking it.
-
-[Example Link](http://www.google.com "Example Link")
+prototype in development
 
 ## Example Code
-NOTE: Wrap your code blocks or any code citation by using ``` like the example below.
-```
-function test() {
-  console.log("Printing a test");
-}
-```
-## Links to External Libraries
- NOTE: You can also use this space to link to external libraries or Github repositories you used on your project.
+Layar JSON format
 
-[Example Link](http://www.google.com "Example Link")
+## Links to External Libraries
+Google Maps API
 
 ## Images & Videos
-NOTE: For additional images you can either use a relative link to an image on this repo or an absolute link to an externally hosted image.
 
-![Example Image](project_images/cover.jpg?raw=true "Example Image")
-
-https://www.youtube.com/watch?v=30yGOxJJ2PQ
+http://sndrv.com/biggar
