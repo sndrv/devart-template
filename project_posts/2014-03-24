@@ -1,0 +1,15 @@
+# TECHNOLOGY
+
+The global augmented reality sculpture will be implemented as a geo-layer which can be accessed with the augmented reality browser Layar. 
+
+## IMPLEMENTATION STEP 1
+
+The Layar browser connects to a web-server to read a JSON file in which the properties like size, rotation and GPS-location of 2D and 3D items can be specified, as well as timed animations on the X, Y or Z axis. The start of the project is the configuration of a Layar in the developers section at the Layar website, by giving it a title, uploading an icon and pointing to the "API endpoint" where the JSON can be found.
+
+## IMPLEMENTATION STEP 2
+
+The first goal is to implement a mechanism that creates a grid of pins around the viewer. It's important to adjust the spatial positioning based on the location of the viewer. The space inbetween latitude and longitude lines differs depending on where on earth the viewer is viewing standing. Hopefully, the Google Maps API will provide a measurement of a meter in terms of GPS numbers, so the pins can be placed using a script that's based on these localized numbers.
+
+## IMPLEMENTATION STEP 3
+
+Instead of pre-calculating the positions of the pins for the whole world, an area with a limited radius is going to be calculated. These GPS-locations are going to be stored in a database, and the movement of people through the grid will be traced and recorded in the database by means of a timestamp update on the nearby pin(s). Every 10 seconds, the layar browser checks the JSON output for updates in the properties of all the (active) items. This is the way in which the movements of one person will be visible to another nearby viewer. Their browsers get their input from the same database.
