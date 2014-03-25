@@ -8,3 +8,6 @@ Augmented reality provides visual artists with a universe without borders and li
 
 ## Sander Veenhof / SNDRV
 
+![Sketch2 Image](../project_images/sketch.jpg?raw=true "Sketch2 Image")
+
+

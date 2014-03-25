@@ -17,5 +17,6 @@ Now it's time to implement an upgrade of the concept. I'm going to launch an int
 By walking through this aufield of pins, the pins will start spinning.
 The augmented reality artwork will react as a result of the presence of a (smartphone connected) human: 
 
+![Sketch2 Image](../project_images/sketch.jpg?raw=true "Sketch2 Image")
 
 
