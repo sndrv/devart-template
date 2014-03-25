@@ -1,4 +1,4 @@
-# STEP 1 & 2
+# FIRST STEP
 
 An initial version 0.5 of the script has been implemented. The script is about 100 lines long. It generated JSON code using a loop. Comments explain the purpose of the pieces of code. Most of it is in use to specify the POI (points of interest) according to the specs provided by Layar. See below:
 
