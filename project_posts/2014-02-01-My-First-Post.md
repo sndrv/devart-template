@@ -6,19 +6,16 @@ My projects are often aimed at exploring the boundaries of new technology. I loo
 
 ![Portfolio2 Image](http://sndrv.com/moma/WeARinMoMA.jpg?raw=true "Portfolio2 Image")
 
-The paralel digital world is without limits, when you're able to program it. Showcasing this fact was the background of my global artwork BiggAR. See video below:
+The paralel digital world is without limits, when you're able to program it. Showcasing this fact was the background of my global artwork BiggAR. Look anywhere
 
 ![Portfolio3 Image](../project_images/BiggAR.jpg?raw=true "Portfolio3 Image")
 
-Now it's time to do anupgrade of the concept. I'm going to launch an interactive artwork that stretches out across the surface of the whole earth. Wherever you look, typical Google Map dots will appear. 
+Now it's time to implement an upgrade of the concept. I'm going to launch an interactive artwork that stretches out across the surface of the whole earth. Wherever you are, you will find yourself amidst a field of typical Google Map pins. 
 
 ![Sketch1 Image](../project_images/globe-pins.jpg?raw=true "Sketch1 Image")
 
-
-By walking through this field of pins, they should start spinning.
-The augmented reality pins will react as a result of the presence of a (smartphone connected) human: 
-
-![Sketch2 Image](../project_images/sketch.jpg?raw=true "Sketch2 Image")
+By walking through this aufield of pins, the pins will start spinning.
+The augmented reality artwork will react as a result of the presence of a (smartphone connected) human: 
 
 
 
