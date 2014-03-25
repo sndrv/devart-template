@@ -8,7 +8,7 @@ My projects are often aimed at exploring the boundaries of new technology. I loo
 
 The paralel digital world is without limits, when you're able to program it. Showcasing this fact was the background of my global artwork BiggAR. Look anywhere
 
-![Portfolio3 Image](../project_images/BiggAR.jpg?raw=true "Portfolio3 Image")
+![Portfolio3 Image](../project_images/Biggar-everywhere.jpg?raw=true "Portfolio3 Image")
 
 Now it's time to implement an upgrade of the concept. I'm going to launch an interactive artwork that stretches out across the surface of the whole earth. Wherever you are, you will find yourself amidst a field of typical Google Map pins. 
 
