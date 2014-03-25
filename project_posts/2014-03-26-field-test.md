@@ -1,6 +1,6 @@
 # STEP 1 & 2
 
-An initial version 0.5 of the script has been implemented. The script is about 100 lines long. The JSON code it generates is much longer. Comments explain the purpose of the pieces of code. Most of it is in use to specify the POI (points of interest) according to the specs provided by Layar. See below:
+An initial version 0.5 of the script has been implemented. The script is about 100 lines long. It generated JSON code using a loop. Comments explain the purpose of the pieces of code. Most of it is in use to specify the POI (points of interest) according to the specs provided by Layar. See below:
 
 ![Layar1 Image](../project_images/API_v6.2_hotspot.png?raw=true "Layar1 Image")
 
