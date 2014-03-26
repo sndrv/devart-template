@@ -1,7 +1,8 @@
 # CODE EXPLAINED
 
-The layar browser requests a webserver to get the POI (points of interest) to display. In the call, it passes lat/lon parameters to the server 
+An initial version 0.5 of the script has been implemented. The php script generates the JSON code using a loop. The Comments below explain the relevant pieces of code. 
 
+The layar browser requests a webserver to get the POI (points of interest) to display. In the call, it passes lat/lon parameters to the server 
 
 ```
 json.php / v0.5
@@ -33,12 +34,14 @@ for ($x=-7;$x<8;$x++) {
 		
 ```
 
-On each of these coordinates, a "poi" will appear with specs defined in a $poi object. Lat, lon, title, size etc will be specified:
+On each of these coordinates, a "poi" will appear with specs defined in a $poi object. Lat, lon, title, size etc will be specified, according to the requirements by layar:
 
 ```
 $poi["lat"] = $ilat*1000000;	// no floats accepted, convert to int
 $poi["lon"] = $ilon*1000000;
 ```	      
+
+![Layar1 Image](../project_images/API_v6.2_hotspot.png?raw=true "Layar1 Image")
 
 Each POI is added to the response array:
 

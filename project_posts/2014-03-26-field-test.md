@@ -1,9 +1,18 @@
 # FIRST OUTDOOR TEST
 
-The script is placed on a server that parses php. When pointed to this file, the Layar browser succesfully reads and parses the JSON. A grid of points appears surrounding the viewer!
+All pins are going to placed on a fixed grid of lat/lon coordinates. Each lat/lon coordinate anywhere in the world will be mapped to a position within a grid. 
+
+![grid Image](../project_images/latlon.png?raw=true "grid Image")
+
+The first step has been taken and tested: the script generates a grid of POI (points of interest).
 
 https://www.youtube.com/watch?v=lHRqQ9dwDuI
 
+# INTERACTIVE 
+
+Now that the server-script is functioning and the output is rendered correctly in the Layar browser, the next step is to turn the field of pins to an interactive reactive environment that traces passers by. It's not making going to make use of specific location-based hardware or sensors, but that's what makes it possible to let the the vitual sculpture be available anywhere on the globe.
+
+Whenever a user is within a certail treshold vicinity of a pin, the database entry will be be updated with a timestamp. Freshly 'touched' pins will be animating. The speed of the rotation animation will slow down over time. This is being calculated based on the update timestamp of the pin.
 
 
 
