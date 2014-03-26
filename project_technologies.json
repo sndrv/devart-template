@@ -4,10 +4,13 @@
             "Google Maps API"
         ],
         "platforms": [
-            "Layar augmented reality browser on Android/iOS"
+            "Layar augmented reality browser",
+            "iOS",
+            "Android"
         ],
         "toolkits": [
-            
+            "php",
+            "JSON"
         ]
     },
     "themes": [
