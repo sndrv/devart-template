@@ -6,8 +6,7 @@ An initial version 0.5 of the script has been implemented. The script is about 1
 
 The script is placed on a server that parses php. When pointed to this file, the Layar browser succesfully reads and parses the JSON. A grid of points appears surrounding the viewer!
 
-https://www.youtube.com/watch?v=_TPkjukP9Sw
-
+https://www.youtube.com/watch?v=lHRqQ9dwDuI
 
 
 
