@@ -1,6 +1,12 @@
-# CODE
+# CODE EXPLAINED
 
 The layar browser requests a webserver to get the POI (points of interest) to display. In the call, it passes lat/lon parameters to the server 
+
+
+```
+json.php / v0.5
+
+```
 
 ```
 $lat = $_GET['lat'];
