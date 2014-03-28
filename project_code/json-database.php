@@ -94,18 +94,15 @@ if ($accuracy > 300) {
 
 
 
-
 $q = "select * from grid";
 
-if ($city != "") { 		// The location of the user has been traced
+if ($city != "") { 			// The location of the user has been traced
 	
 	 $q = $q." where city NOT LIKE '".$city."' ";
 	 
 } 
 
 $q = $q."order by moment DESC limit 1";
-
-echo $q;
 
 $res = mysql_query($q);
 	
@@ -118,33 +115,11 @@ if ($row = mysql_fetch_assoc($res) ) {
 	$latest = "";
 }
 
-
-
-
-$keys = array( "layerName", "lat", "lon", "radius" );
-
-// Initialize an empty associative array.
-$value = array(); 
-
-// Retrieve parameter values using $_GET and put them in $value array with parameter name as key. 
-foreach( $keys as $key ) {
-
-  $value[$key] = $_GET[$key]; 
-  
- }
  
 try {
 	
-	$radius = $filter->radius;
-
 	$response = array();
 	
-	// $message = "update";
-
-	if (isset($message) ) {
-		
-		//$response['showMessage'] = $message;
-	}
 	
        $response["refreshInterval"] = 10;
 
@@ -152,8 +127,6 @@ try {
 	$response["refreshDistance"] = 5;
 	
 	$response["layer"] = $value["layerName"];
-	
-	
 	
   
      $i=0;
@@ -193,17 +166,12 @@ try {
 		
 		if ($distance < $treshold) {
 			
-			$status = $distance."/".$_GET['SEARCHBOX'];
-			
-			$q2 = "update grid set moment = NOW(), status = '".$status."' where id = ".$id;
+			$q2 = "update grid set moment = NOW() where id = ".$id;
 			mysql_query($q2);
 			
 		}
 		
-		
-		
-		
-	     $poi['id'] = "pin-".$id;
+	        $poi['id'] = "pin-".$id;
 		$poi['actions'] = array();
 		 
 		$poi ['title'] = "G.P.S.";
@@ -216,23 +184,17 @@ try {
 		
 		$poi["showSmallBiw"] = false;
 	     
-	      $poi['object']['baseURL'] = "http://sndrv.nl/layar/gpsculpture/"; // $poi['baseURL'];
+	      $poi['object']['baseURL'] = "http://sndrv.nl/layar/gpsculpture/"; 
 	      
 	     $color = $row['color'];
 	     
-	   
-	     
 	     $model = "pin.png";
 	   
-	      $poi['object']['full'] = $model."?v=11"; // 
+	      $poi['object']['full'] = $model."?v=11"; 
 	    
 	      $poi['object']['reduced'] =  $poi['object']['full'];
-	    
-		  
+	    	  
 	      $poi['object']['icon'] = $poi['icon'];
-	      
-	     
-	      // SHUFFLING: TRANSFORM:
 	      
 	      $rotation = 0;
 	      
@@ -243,50 +205,32 @@ try {
 	      
 	      $poi['transform']['angle'] = $rotation;
 	      
-	      $poi['transform']['scale'] = 2; // big: 1
+	      $poi['transform']['scale'] = 2;
 	      
-	      if (isset($_GET['CUSTOM_SLIDER'])) {
-	      	      $size = $_GET['CUSTOM_SLIDER'];
-	      } else {
-	      	      $size = 5;
-	      }
+	      $size = 5;
 	      
-	      $poi['object']['size'] = $size; // big: 4
+	      $poi['object']['size'] = $size;
 	     
-	      
-	      $alt = -4; // -7
+	      $alt = -4;
 	      
 	      $poi["alt"] = null;
 	      $poi["relativeAlt"] = $alt;
 	      
-	      
 	      $poi["lat"] = $row['lat']*1000000;
 	      $poi["lon"] = $row['lon']*1000000;
-	       
-	     
+	      
 	      $poi['dimension'] = 2;
-	    
-	      // Change to Int with function ChangetoInt.
 	      
 	      $poi["type"] = 0;
-	       
-	    
-	      
-	      // Change to demical value with function ChangetoFloat
-	      
 	      
 	      $poi['distance'] = 10;
 		
 	      $actions = 0;
 	     
-	      
 	      $poi["distance"] = 0;
 	      
-	      // Change the values of "doNotIndex" into boolean value,if the value is not NULL. Otherwise, return NULL.
-	      $poi["doNotIndex"] = 1;
-		
-	      // Change the values of "inFocus" into boolean value,if the value is not NULL. Otherwise, return NULL.
-	      $poi["inFocus"] = 0;
+	      	$poi["doNotIndex"] = 1;
+		 $poi["inFocus"] = 0;
 	      
 		$poi['object']['icon'] = "http://sndrv.nl/layar/gpsculpture/trans.png";
 		
@@ -297,7 +241,6 @@ try {
 		if ($sec > 0) {			// no animation on pins that haven't been touched yet
 			
 			$dur = $sec/10*1000;
-			
 			
 			$from = 0;
 			$to = 360;
@@ -338,7 +281,6 @@ try {
 			
 		$json = @file_get_contents($url);
 		
-		// parse the json response
 		$jsondata = json_decode($json,true);
 		
 		foreach($jsondata['results'][0]['address_components'] as $k=>$found){ 
@@ -359,7 +301,6 @@ try {
 		       	       $city = $found['long_name'];
 		       	       
 		       	       
-		       	       
 		     }
 		}
 		
@@ -370,7 +311,6 @@ try {
 				       
 		      $q = "update grid set city = '".$city."', country = '".$country."' where id in (".$imploded.")";
 		      
-		      //echo $q;
 		      mysql_query($q);
 		      
 		}
@@ -379,40 +319,12 @@ try {
 			
 	}
       
-	// if there is no POI found, return a custom error message.
-	if ( empty( $response["hotspots"] ) ) {
-	
-		$response["errorCode"] = 20;
- 		$response["errorString"] = "Sorry, nothing here - accuracy: ".$accuracy;
- 		
-	}//if
-	else {
-	
-  		$response["errorCode"] = 0;
-  		$response["errorString"] = "OK";
-  		
-	}//else
-
-	// $response['showMessage'] = $debug;
-
-
-
-	// Put the JSON representation of $response into $jsonresponse.
-	
+	$response["errorCode"] = 0;
+  	$response["errorString"] = "OK";
+  	
 	$jsonresponse = json_encode( $response );
-	
-	// Declare the correct content type in HTTP response header.
-	// header( "Content-type: application/json; charset=utf-8" );
-	
-	// print_r($response);
-	
-	// Print out Json response.
 	echo $jsonresponse;
 
-	/* Close the MySQL connection.*/
-	
-	// Set $db to NULL to close the database connection.
-	$db=null;
 }
 catch( PDOException $e ){
     echo $e->getMessage();
