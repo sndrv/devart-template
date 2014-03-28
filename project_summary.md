@@ -13,9 +13,9 @@ https://www.youtube.com/watch?v=HPiTTDiIbHY
 
 ## TRY IT / PROTOTYPE
 
-Layar augmented reality browser required:
+Download the Layar augmented reality browser for Android/iOS then scan QR code below to launch the Global Participative Sculpture:
 
-![QR Image](../project_images/QR.png?raw=true "QR Image")
+![QR Image](../project_images/app.jpg?raw=true "QR Image")
 
 
 
