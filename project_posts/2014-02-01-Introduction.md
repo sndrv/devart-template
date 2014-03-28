@@ -4,7 +4,7 @@ Ever since I the time I learned coding on a commodore 64 home computer, I've bee
 
 I've been creating augmented reality decors for theater groups, I've created hybrid fashion in cooperation with a fashion designer, I've been mixing tangible and virtual reality at spots around the world. [Portfolio of augmented reality experiments >](http://www.pinterest.com/sanderveenhof/augmented-reality-archive/)
 
-![AR Image](http://sndrv.com/moma/augmentedreality.jpg?raw=true "AR Image")
+![AR Image](../project_images/augmentedreality.jpg?raw=true "AR Image")
 
 My projects are often aimed at exploring the boundaries of new technology. I look at technological possibilities, but also to societal impacts and the consequences for the existing world of art. An example is the uninvited exhibited in the MoMA museum in New York together with fellow artists of the Manifest.AR artists collective, which I co-founded. My contribution to the show was an extension of the museum building with a virtual 7th floor. 
 
