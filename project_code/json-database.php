@@ -1,90 +1,74 @@
 <?php
 
+// add your own database username/password in this file:
+
 include ("../databaseconnect.php");
 
+// use an estimate of 1 meter measured on a GPS lat/lon scale
 $mlat = 0.000030;
 $mlon = 0.000055;
   
+// get the relevant values from the Layar browser request
 $lat = $_GET['lat'];
 $lon = $_GET['lon'];
 $accuracy = $_GET['accuracy'];
 
+// set the city/country of this request to an empty string
 $city = "";
 $country = "";
 
-
-if ($lat == 0 || $lon == 0) {
-	
-	$message = "Please wait 10 seconds";
-	
-       $response["refreshInterval"] = 10;
-
-	$response["fullRefresh"] = true;
-	$response["refreshDistance"] = 5;
-	
-	$response["errorCode"] = 0;
-	$response["errorString"] = "Waiting for GPS signal";
-
-	$jsonresponse = json_encode( $response );
-	
-	echo $jsonresponse;
-	
-	exit;
-	
-}
-
-
+// map GPS coordinate to a grid with 4 meter of spacing inbetween the points
 $factor = 1000000;
-
 $flat = floor($lat*$factor/($factor*4*$mlat))*4*$mlat;
 $flon = floor($lon*$factor/($factor*4*$mlon))*4*$mlon;
 
+// create an array to collect all GPS spots for this request
 $ids = array();
 
-
-$a = 0;
-
-if ($accuracy > 300) {
+if ($accuracy > 300) {	// if the accuracy is above 300, the user is somewhere inside a building.  
 	
-	$distance = 300000;
+	$distance = 300000;	// use a wide search range for gps spots
+	
+	// don't insert any new spots around this gps location, because this gps spot might be irrelevant (because of the low accuracy)
 	
 } else {
+
+	// if the accuracy is OK, calculate a grid of gps spots and check if these are present already in the database
 	
 	$distance = 200;		
 
-	
 	for ($x=-7;$x<8;$x++) {
 		for ($y=-7;$y<8;$y++) {
 			
-		
-			$ilat = $x * 4 * $mlat + $flat; // insert lat/lon
+			// calculate a gps spot relative to the viewer
+			$ilat = $x * 4 * $mlat + $flat; 
 			$ilon = $y * 4 * $mlon + $flon; 
 				
-			$color = "";
-					
 			$q = " select * from grid where lat LIKE '".$ilat."' AND lon LIKE '".$ilon."' limit 1";
 			
 			$res = mysql_query($q);
 			
 			if ($row = mysql_fetch_assoc($res) ) {
 			
-				if ($country == "") {
+				if ($country == "") {	// if the location information is stored in one of the spots in the database, we know where the user is
+					
 					$country = $row['country'];
 					$city = $row['city'];
 					
 				}
 				
 				
-			} else {
+			} else { 	
+				
+				// if the spot didn't exist yet, create it.
+				
+				// set the "moment" to a moment in the far past - only 'touched' items will later get their moment set to now 
 				
 				$q = "insert into grid (moment,lat,lon) VALUES (NOW()-100000, '".$ilat."','".$ilon."' ) ";
 				
 				mysql_query($q);
 				
 				$ids[] = mysql_insert_id();
-				
-				$a++;
-				
 				
 			}
 		}
@@ -93,10 +77,11 @@ if ($accuracy > 300) {
 }
 
 
+// look for the other interactions
 
 $q = "select * from grid";
 
-if ($city != "") { 			// The location of the user has been traced
+if ($city != "") { 	// The location of the user has been traced, look for interactions in another city
 	
 	 $q = $q." where city NOT LIKE '".$city."' ";
 	 
@@ -118,20 +103,22 @@ if ($row = mysql_fetch_assoc($res) ) {
  
 try {
 	
+	// this array will contain all the spots
+	
 	$response = array();
 	
-	
-       $response["refreshInterval"] = 10;
+       $response["refreshInterval"] = 10;	// fastest refresh rate is 10 seconds, unfortunately
 
 	$response["fullRefresh"] = false;
-	$response["refreshDistance"] = 5;
+	$response["refreshDistance"] = 5;	// walk 5 meter for a refresh
 	
-	$response["layer"] = $value["layerName"];
+	$response["layer"] = "global";
 	
   
      $i=0;
      $d=0;
      
+     // select nearby gps spots from the database
      $q = "SELECT *, 6371010 * 2 * asin(
 	    sqrt(
 		pow(sin((radians(" . addslashes($lat) . ") - radians(lat)) / 2), 2)
@@ -145,15 +132,18 @@ try {
 
 	$res = mysql_query($q);
 	
+	// render a maximum of 150 points
 	
 	while ($i< 150 && $row = mysql_fetch_assoc($res) ) {	
 	
+		// whenever one of the points contains city/country details, remember it (If nothing found, Google Maps is consulted later on)
 		if ($row['country'] != "") {
 			
 			$country = $row['country'];
 			$city  = $row['city'];
 		}
 		
+		// for all the $poi fields, see the Layar API specification mentioned in the project-post
 		$id = $row['id'];
 		
 		$status = $row['status'];
@@ -237,9 +227,12 @@ try {
 	
 		$update = 0;
          
+         	// check if a point needs to animate
+         	
+		if ($sec > 0) {		// if sec is positive, it means it has been touched
 		
-		if ($sec > 0) {			// no animation on pins that haven't been touched yet
-			
+			// the duration of a 360 degree animation defines the speed and is dependent on the time between the moment of 'touch' and now 
+				
 			$dur = $sec/10*1000;
 			
 			$from = 0;
@@ -283,6 +276,8 @@ try {
 		
 		$jsondata = json_decode($json,true);
 		
+		// look for country info
+		
 		foreach($jsondata['results'][0]['address_components'] as $k=>$found){ 
 		  
 		     if( ($country == "") && (in_array("country", $found['types']) ) ) {
@@ -294,6 +289,8 @@ try {
 		     }
 		}
 		
+		// look for city info
+		
 		foreach($jsondata['results'][0]['address_components'] as $k=>$found){ 
 		  
 		     if( ($city == "") && (in_array("locality", $found['types']) ) ) {
@@ -304,6 +301,7 @@ try {
 		     }
 		}
 		
+		// if found, update all the gps spots in the vicinity of this viewer
 		
 		if ($country != "") {
 		
