@@ -11,6 +11,3 @@ The prototype can now be experienced! Install the Layar browser on your smartpho
 
 The fastest refresh-rate of the current implementation in the Layar browser is 10 seconds. In the worst case, it takes 10 seconds until a fellow user of the layar is being detected and visualised through rotating pins at his or her GPS location in the distance. Obviously, the speed and accuracy is something that will need to be improved when creating a dedicated app based on this prototype.
 
-https://www.youtube.com/watch?v=HPiTTDiIbHY
-
-

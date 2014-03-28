@@ -10,8 +10,7 @@ My projects are often aimed at exploring the boundaries of new technology. I loo
 ![Portfolio2 Image](http://sndrv.com/moma/WeARinMoMA.jpg?raw=true "Portfolio2 Image")
 [sndrv.com/moma](http://sndrv.com/moma)
 
-The paralel digital world is without limits, when you're able to program it. I often invite a global audience to interact with my projects. Not with massive events at specific locations, but with subtle and conceptual events instead, impactful for those that are open to it. The "Global Choreography" was the biggest -but at the same time most invisible- flashmob ever organised  
-[(globalchoreography.info)](http://globalchoreography.info). I updated the classic game of PONG to reflect the world anno now: a multi-multi-player version with global players appearing visually in your 3D surroundings thanks to augmented reality.
+The paralel digital world is without limits, when you're able to program it. I often invite a global audience to interact with my projects. Not with massive events at specific locations, but with subtle and conceptual events instead, impactful for those that are open to it. The "Global Choreography" was the biggest (but at the same time most invisible) flashmob ever organised: [globalchoreography.info](http://globalchoreography.info). I updated the classic game of PONG to reflect the world anno now: a multi-player augmented reality version with global players to PONG to: [sndrv.com/pong](http://sndrv.com/pong)
 
 ![Sketch2 Image](../project_images/globalpong.jpg?raw=true "Sketch2 Image")
 
