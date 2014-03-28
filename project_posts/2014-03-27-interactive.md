@@ -18,7 +18,15 @@ To make this a truly global interactive artwork, the location of each interactio
 
 ![data Image](../project_images/data.jpg?raw=true "data Image")
 
-For the sake of request efficiency, the retrieved information is stored at the time of the first interaction with the pins, so the Google Maps API only needs to be called once in every area:
+The flow of the code in json-database.php related to the location mapping:
+
+1. The database is checked for pins in the vicinity of the user
+2. Are these pins annotated with location information? If so, no need to check Google Map API
+3. If not, check Google Map API
+4. Look for any other interactions anywhere in the world (i.e. most recent database entries not having the same city/county data)
+5. Show it in the info-tab of each pin
+
+So for the sake of request efficiency, the retrieved information is stored at the time of the first interaction with the pins, so the Google Maps API only needs to be called once in every area:
 
 ```
 $url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=".$lat.",".$lon."&output=json&sensor=true";
@@ -40,12 +48,3 @@ foreach($jsondata['results'][0]['address_components'] as $k=>$found){
 }
 
 ```
-
-The flow of the code in json-database.php related to the location mapping:
-
-1. The database is checked for pins in the vicinity of the user
-2. Are these pins annotated with location information? If so, no need to check Google Map API
-3. If not, check Google Map API
-4. Look for any other interactions anywhere in the world (i.e. most recent database entries not having the same city/county data)
-5. Show it in the info-tab of each pin
-

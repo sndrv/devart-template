@@ -41,9 +41,11 @@ $poi["lat"] = $ilat*1000000;	// no floats accepted, convert to int
 $poi["lon"] = $ilon*1000000;
 ```	      
 
+[Specification of the Layar API](https://www.layar.com/documentation/browser/api/getpois-response/):
+
 ![Layar1 Image](../project_images/API_v6.2_hotspot.png?raw=true "Layar1 Image")
 
-Each POI is added to the response array:
+Each POI (point of interest) is added to the response array:
 
 ```
 $response["hotspots"][$i] = $poi;

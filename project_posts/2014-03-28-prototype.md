@@ -2,10 +2,9 @@
 
 A database has been added on the background as the memory of the global sculpture. It's used to calculate and remember the time each pin needs to animate, when someone has virtually touched it.
 
-The prototype can now be experienced! Install the Layar browser on your smartphone or tablet and scan the QR code below:
+![screenshot Image](../project_images/amsterdam.png?raw=true "screenshot Image")
 
-![QR Image](../project_images/QR.png?raw=true "QR Image")
-
+The prototype can now be experienced! Install the Layar browser on your smartphone or tablet and open the geo-layer "G.P.S"
 
 # OPTIMALISATION
 
