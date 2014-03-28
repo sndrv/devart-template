@@ -1,10 +1,10 @@
 # IT'S READY!
 
-A database has been added on the background as the memory of the global sculpture. It's used to calculate and remember the time each pin needs to animate, when someone has virtually touched it.
+Creating augmented reality is a somehow unusual way of software developemtn. It's different than the traditional desk based working space. During the past years I've opened my laptop on a huge variety of outdoor situations, under various weather conditions. To test GPS-positioned appearances, to finetune 3D tracking of buildings, and meanwhile debugging my scripts and trying to find out what's wrong looking around in augmented world that's completely empty. Debugging a multi-user project like this, and documenting it brings in the additional issues of working on a tethered wifi-connection and batteries of all the required devices that are always running towards the end. The struggles of the connected human being of today!
+
+But the Global Participative Sculpture is there! It's everywhere around the world, so give it a try! Install the Layar browser on your smartphone or tablet and open the geo-layer "G.P.S". 
 
 ![screenshot Image](../project_images/amsterdam.png?raw=true "screenshot Image")
-
-The prototype can now be experienced! Install the Layar browser on your smartphone or tablet and open the geo-layer "G.P.S"
 
 # OPTIMALISATION
 
