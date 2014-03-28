@@ -7,7 +7,6 @@ Augmented reality provides visual artists with a universe without borders and li
 ![Sketch2 Image](../project_images/sketch.jpg?raw=true "Sketch2 Image")
 
 ## VIDEO
-<<<<<<< HEAD
 
 https://www.youtube.com/watch?v=HPiTTDiIbHY
 
@@ -16,17 +15,6 @@ https://www.youtube.com/watch?v=HPiTTDiIbHY
 Download the Layar augmented reality browser for Android/iOS then scan QR code below to launch the Global Participative Sculpture:
 
 ![QR Image](../project_images/app.jpg?raw=true "QR Image")
-
-=======
-
-https://www.youtube.com/watch?v=HPiTTDiIbHY
-
-## TRY IT / PROTOTYPE
-
-Download the Layar augmented reality browser for Android/iOS then scan QR code below to launch the Global Participative Sculpture:
-
-![QR Image](../project_images/app.jpg?raw=true "QR Image")
->>>>>>> FETCH_HEAD
 
 
 
